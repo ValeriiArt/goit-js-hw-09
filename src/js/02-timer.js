@@ -29,6 +29,7 @@ const options = {
     
         if (selectedDates[0] < options.defaultDate) {
             Notiflix.Notify.warning("Please choose a date in the future")
+            refs.startBtn.disabled = true;
         } else {
             refs.startBtn.disabled = false;
         } 
@@ -39,13 +40,13 @@ const options = {
 flatpickr(refs.dtPicker, options);
 
 function onClickStart() {
+    refs.startBtn.disabled = true;
+    refs.dtPicker.disabled = true;
     
     timerId = setInterval(() => {
         const defaultDate = new Date;
         const defaultDateMs = Date.parse(defaultDate);
         const differenceMs = futureDateMs - defaultDateMs;
-        refs.startBtn.disabled = true;
-        refs.dtPicker.disabled = true;
 
         if (defaultDateMs === futureDateMs) {
             onTimeStop();

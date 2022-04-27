@@ -8,7 +8,6 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 let position = 0;
 
-
 function onFormSubmit(evt) {
   evt.preventDefault();
   let delay = Number(evt.target.delay.value);
